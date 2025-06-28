@@ -29,6 +29,8 @@ buildNpmPackage (finalAttrs: {
     hash = "sha256-yoUAOo8OwUWG0gyI5AdwfRFzSZvSCd3HYzzpJRvdbiM=";
   };
 
+  npmInstallFlags = [ "--omit=dev" ];
+
   preConfigure = ''
     mkdir -p packages/generated
     echo "export const GIT_COMMIT_INFO = { commitHash: '${finalAttrs.src.rev}' };" > packages/generated/git-commit.ts
